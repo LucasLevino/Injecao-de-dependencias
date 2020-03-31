@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+import 'package:project_c/app/shared/auth/auth_controller.dart';
 import 'package:project_c/app/shared/repositories/localstorage/local_storage_hive.dart';
 import 'package:project_c/app/shared/repositories/localstorage/local_storage_interface.dart';
 
@@ -45,5 +46,10 @@ abstract class _HomeControllerBase with Store {
   void remove(int index) {
     list.removeAt(index);
     _storage.put('list', list);
+  }
+
+  logoff() async {
+    await Modular.get<AuthController>().logOut();
+    Modular.to.pushReplacementNamed('/login');
   }
 }

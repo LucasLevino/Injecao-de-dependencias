@@ -1,4 +1,4 @@
-package com.example.project_c
+package br.projeto.login
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
